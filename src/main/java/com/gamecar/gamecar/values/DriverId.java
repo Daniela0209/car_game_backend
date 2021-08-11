@@ -5,7 +5,7 @@ import java.util.UUID;
 public class DriverId {
 
 
-    private UUID id;
+    private final UUID id;
 
     public DriverId(UUID id) {
         this.id = id;

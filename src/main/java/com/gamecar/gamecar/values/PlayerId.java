@@ -4,13 +4,13 @@ import java.util.UUID;
 
 public class PlayerId {
 
-    private UUID id;
+    private final UUID id;
 
     public PlayerId(UUID id) {
         this.id = id;
     }
 
-    public String getId() {
-        return id.toString();
+    public UUID getId() {
+        return id;
     }
 }

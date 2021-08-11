@@ -5,7 +5,7 @@ import java.util.UUID;
 public class PistaId {
 
 
-    private UUID id;
+    private final UUID id;
 
     public PistaId(UUID id) {
         this.id = id;

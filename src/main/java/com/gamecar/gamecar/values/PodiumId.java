@@ -5,7 +5,7 @@ import java.util.UUID;
 public class PodiumId {
 
 
-    private UUID id;
+    private final UUID id;
 
     public PodiumId(UUID id) {
         this.id = id;

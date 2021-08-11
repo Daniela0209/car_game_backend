@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class CarId {
 
-    private UUID id;
+    private final UUID id;
 
     public CarId(UUID id) {
         this.id = id;

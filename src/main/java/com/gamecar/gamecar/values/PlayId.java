@@ -5,7 +5,7 @@ import java.util.UUID;
 public class PlayId {
 
 
-    private UUID id;
+    private final UUID id;
 
     public PlayId(UUID id) {
         this.id = id;
