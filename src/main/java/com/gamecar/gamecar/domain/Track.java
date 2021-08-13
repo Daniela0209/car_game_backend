@@ -1,30 +1,21 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.PistaId;
+import com.gamecar.gamecar.values.id.TrackId;
 import com.gamecar.gamecar.values.Trackdistance;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Document(collection = "Track")
 public class Track {
 
     @Id
-    private PistaId pistaId;
+    private TrackId trackId;
     private Trackdistance trackdistance;
 
-    public PistaId getPistaId() {
-        return pistaId;
-    }
-
-    public void setPistaId(PistaId pistaId) {
-        this.pistaId = pistaId;
-    }
-
-    public Trackdistance getTrackdistance() {
-        return trackdistance;
-    }
-
-    public void setTrackdistance(Trackdistance trackdistance) {
-        this.trackdistance = trackdistance;
-    }
 }

@@ -1,10 +1,18 @@
 package com.gamecar.gamecar.domain;
 
 import com.gamecar.gamecar.values.*;
+import com.gamecar.gamecar.values.id.DriverId;
+import com.gamecar.gamecar.values.id.PodiumId;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Document(collection = "Podium")
 public class Podium {
 
     @Id
@@ -14,43 +22,4 @@ public class Podium {
     private SecondPlace secondPlace;
     private ThirdPlace thirdPlace;
 
-    public PodiumId getPodiumId() {
-        return podiumId;
-    }
-
-    public void setPodiumId(PodiumId podiumId) {
-        this.podiumId = podiumId;
-    }
-
-    public DriverId getDriverId() {
-        return driverId;
-    }
-
-    public void setDriverId(DriverId driverId) {
-        this.driverId = driverId;
-    }
-
-    public FirstPlace getFirstPlace() {
-        return firstPlace;
-    }
-
-    public void setFirstPlace(FirstPlace firstPlace) {
-        this.firstPlace = firstPlace;
-    }
-
-    public SecondPlace getSecondPlace() {
-        return secondPlace;
-    }
-
-    public void setSecondPlace(SecondPlace secondPlace) {
-        this.secondPlace = secondPlace;
-    }
-
-    public ThirdPlace getThirdPlace() {
-        return thirdPlace;
-    }
-
-    public void setThirdPlace(ThirdPlace thirdPlace) {
-        this.thirdPlace = thirdPlace;
-    }
 }

@@ -1,40 +1,24 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.Dices;
-import com.gamecar.gamecar.values.DriverId;
-import com.gamecar.gamecar.values.PlayerId;
+import com.gamecar.gamecar.values.id.CarId;
+import com.gamecar.gamecar.values.id.DriverId;
+import com.gamecar.gamecar.values.id.PlayerId;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
+@Document(collection = "Driver")
 public class Driver {
 
     @Id
     private DriverId driverId;
-    private Dices dices;
+    private CarId carId;
     private PlayerId playerId;
 
-    public DriverId getDriverId() {
-        return driverId;
-    }
 
-    public void setDriverId(DriverId driverId) {
-        this.driverId = driverId;
-    }
-
-    public Dices getDices() {
-        return dices;
-    }
-
-    public void setDices(Dices dices) {
-        this.dices = dices;
-    }
-
-    public PlayerId getPlayerId() {
-        return playerId;
-    }
-
-    public void setPlayerId(PlayerId playerId) {
-        this.playerId = playerId;
-    }
 }

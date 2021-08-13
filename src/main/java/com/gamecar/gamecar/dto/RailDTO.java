@@ -1,64 +1,24 @@
 package com.gamecar.gamecar.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+
+@Data
+@AllArgsConstructor
+@Document(collection = "Rail")
 public class RailDTO {
 
-    private String carrilId;
+    @Id
+    private String RailId;
     private String carId;
-    private String playId;
-    private String actualPosition;
-    private String pistaId;
-    private String finalDisplacement;
+    private String driverId;
+    private String gameId;
+    private String  trackId;
 
-    public RailDTO(){
 
-    }
 
-    public String getCarrilId() {
-        return carrilId;
-    }
 
-    public void setCarrilId(String carrilId) {
-        this.carrilId = carrilId;
-    }
-
-    public String getCarId() {
-        return carId;
-    }
-
-    public void setCarId(String carId) {
-        this.carId = carId;
-    }
-
-    public String getPlayId() {
-        return playId;
-    }
-
-    public void setPlayId(String playId) {
-        this.playId = playId;
-    }
-
-    public String getActualPosition() {
-        return actualPosition;
-    }
-
-    public void setActualPosition(String actualPosition) {
-        this.actualPosition = actualPosition;
-    }
-
-    public String getPistaId() {
-        return pistaId;
-    }
-
-    public void setPistaId(String pistaId) {
-        this.pistaId = pistaId;
-    }
-
-    public String getFinalDisplacement() {
-        return finalDisplacement;
-    }
-
-    public void setFinalDisplacement(String finalDisplacement) {
-        this.finalDisplacement = finalDisplacement;
-    }
 }

@@ -1,10 +1,10 @@
 package com.gamecar.gamecar.values;
 
-public class FinalDisplacement {
+public class Advance {
 
     private final String finalDisplacement;
 
-    public FinalDisplacement(String finalDisplacement) {
+    public Advance(String finalDisplacement) {
         this.finalDisplacement = finalDisplacement;
     }
 

@@ -24,11 +24,12 @@ public class UseCaseCreatePlayer {
 
 
         public Mono<PlayerDTO> apply(PlayerDTO playerDTO){
-            var respuesta  = repositoryPlayer
-                            .save(mapperJugador.mapperPlayer(null)
+            return repositoryPlayer
+                            .save(mapperJugador.mapperPlayer(playerDTO.getPlayerId())
                             .apply(playerDTO))
-                            .map(mapperJugador.mapperToPlayer(playerDTO));
+                            .thenReturn(playerDTO);
 
-            return respuesta;
     }
+
+
 }

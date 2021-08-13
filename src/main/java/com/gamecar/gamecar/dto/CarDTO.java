@@ -1,5 +1,9 @@
 package com.gamecar.gamecar.dto;
 
+import com.gamecar.gamecar.values.ActualPosition;
+import com.gamecar.gamecar.values.GoalArrival;
+import com.gamecar.gamecar.values.id.CarId;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -15,8 +19,12 @@ public class CarDTO {
     @Id
     private String carId;
     private String driverId;
-    private String goalArrival;
+    private Boolean goalArrival;
     private String carrilId;
+    private Integer actualPosition;
+    private Integer advance;
+
+
 
 
 }

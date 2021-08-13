@@ -1,15 +1,17 @@
 package com.gamecar.gamecar.values;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public class GoalArrival {
 
-    private final String goalArrival;
+    private final Boolean value;
 
-    public GoalArrival(String goalArrival) {
-        this.goalArrival = goalArrival;
-    }
-
-    public String getGoalArrival() {
-        return goalArrival;
+    public GoalArrival trueValue() {
+        return new GoalArrival(Boolean.TRUE);
     }
 }
 
