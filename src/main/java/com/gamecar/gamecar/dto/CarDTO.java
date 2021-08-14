@@ -1,9 +1,5 @@
 package com.gamecar.gamecar.dto;
 
-import com.gamecar.gamecar.values.ActualPosition;
-import com.gamecar.gamecar.values.GoalArrival;
-import com.gamecar.gamecar.values.id.CarId;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;

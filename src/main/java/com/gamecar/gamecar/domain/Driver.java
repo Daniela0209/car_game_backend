@@ -1,8 +1,6 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.id.CarId;
-import com.gamecar.gamecar.values.id.DriverId;
-import com.gamecar.gamecar.values.id.PlayerId;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +14,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Driver {
 
     @Id
-    private DriverId driverId;
-    private CarId carId;
-    private PlayerId playerId;
+    private String driverId;
+    private String  dices;
+    private String playerId;
 
 
 }

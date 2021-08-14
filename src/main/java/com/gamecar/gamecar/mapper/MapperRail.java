@@ -1,4 +1,4 @@
-package com.gamecar.gamecar.mapper;
+/* package com.gamecar.gamecar.mapper;
 
 import com.gamecar.gamecar.domain.Rail;
 import com.gamecar.gamecar.dto.RailDTO;
@@ -30,4 +30,4 @@ public class MapperRail {
             rail.getGameId().getValue()
         );
     }
-}
+}*/

@@ -1,7 +1,6 @@
 package com.gamecar.gamecar.domain;
 
 
-import com.gamecar.gamecar.values.id.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Rail {
 
     @Id
-    private RailId railId;
-    private CarId carId;
-    private DriverId driverId;
-    private GameId gameId;
-    private TrackId trackId;
+    private String RailId;
+    private String carId;
+    private String driverId;
+    private String gameId;
+    private String  trackId;
 
 
 }

@@ -1,8 +1,7 @@
-package com.gamecar.gamecar.useCase;
+package com.gamecar.gamecar.useCase.rail;
 
 
 import com.gamecar.gamecar.dto.RailDTO;
-import com.gamecar.gamecar.mapper.MapperRail;
 import com.gamecar.gamecar.repository.RepositoryRail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,24 +13,18 @@ import reactor.core.publisher.Mono;
 public class UseCaseCreateRail {
 
     private final RepositoryRail repositoryRail;
-    private final MapperRail mapperRail;
-
 
     @Autowired
-    public UseCaseCreateRail(RepositoryRail repositoryRail, MapperRail mapperRail) {
+    public UseCaseCreateRail(RepositoryRail repositoryRail) {
         this.repositoryRail = repositoryRail;
-        this.mapperRail = mapperRail;
+
     }
 
     public Mono<RailDTO> apply(RailDTO railDTO){
         return repositoryRail
-                .save(mapperRail.mapperRail(railDTO.getRailId())
-                .apply(railDTO))
+                .save(railDTO)
                 .thenReturn(railDTO);
 
 
     }
-
-
-
 }

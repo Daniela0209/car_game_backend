@@ -1,8 +1,5 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.*;
-import com.gamecar.gamecar.values.id.DriverId;
-import com.gamecar.gamecar.values.id.PodiumId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -16,10 +13,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Podium {
 
     @Id
-    private PodiumId podiumId;
-    private DriverId driverId;
-    private FirstPlace  firstPlace ;
-    private SecondPlace secondPlace;
-    private ThirdPlace thirdPlace;
+    private String podiumId;
+    private String driverId;
+    private String firstPlace ;
+    private String secondPlace;
+    private String thirdPlace;
+
 
 }

@@ -1,4 +1,4 @@
-package com.gamecar.gamecar.mapper;
+/*package com.gamecar.gamecar.mapper;
 
 public class MapperCar {
-}
+}*/

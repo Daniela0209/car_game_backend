@@ -1,4 +1,4 @@
-package com.gamecar.gamecar.mapper;
+/*package com.gamecar.gamecar.mapper;
 
 
 import com.gamecar.gamecar.domain.Player;
@@ -34,4 +34,4 @@ public class MapperJugador {
         );
     }
 
-}
+}*/

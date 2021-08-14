@@ -1,7 +1,5 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.id.TrackId;
-import com.gamecar.gamecar.values.Trackdistance;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Track {
 
     @Id
-    private TrackId trackId;
-    private Trackdistance trackdistance;
+    private String pistaId;
+    private String  trackdistance;
 
 }

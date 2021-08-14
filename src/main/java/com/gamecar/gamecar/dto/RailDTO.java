@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class RailDTO {
 
     @Id
-    private String RailId;
+    private String railId;
     private String carId;
     private String driverId;
     private String gameId;
