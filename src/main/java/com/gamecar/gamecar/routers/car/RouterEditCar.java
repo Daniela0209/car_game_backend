@@ -1,29 +1,31 @@
-package com.gamecar.gamecar.routers.rail;
+package com.gamecar.gamecar.routers.car;
 
+
+import com.gamecar.gamecar.dto.CarDTO;
 import com.gamecar.gamecar.dto.RailDTO;
-import com.gamecar.gamecar.useCase.rail.UseCaseCreateRail;
+import com.gamecar.gamecar.useCase.car.UseCreateEditCar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
+import static org.springframework.web.reactive.function.server.RequestPredicates.PUT;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+
 @Configuration
-public class RouterCreateRail {
+public class RouterEditCar {
 
     @Bean
-    public RouterFunction<ServerResponse> createRail(UseCaseCreateRail useCaseCreateRail) {
-        return route(POST("/crearcarril").and(accept(MediaType.APPLICATION_JSON)),
-                request -> request.bodyToMono(RailDTO.class)
-                        .flatMap(railDTO -> useCaseCreateRail.apply(railDTO)
+
+    public RouterFunction<ServerResponse> editCar(UseCreateEditCar useCreateEditCar){
+        return route(PUT("/editarCarril").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(CarDTO.class)
+                        .flatMap(carDTO -> useCreateEditCar.apply(carDTO)
                                 .flatMap(result -> ServerResponse.ok()
-                                        .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
                         )
         );
     }
-
 }

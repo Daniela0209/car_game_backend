@@ -3,6 +3,7 @@ package com.gamecar.gamecar.useCase.track;
 
 import com.gamecar.gamecar.dto.TrackDTO;
 import com.gamecar.gamecar.repository.RepositoryTrack;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
@@ -12,7 +13,7 @@ import reactor.core.publisher.Mono;
 public class UseCaseEditTrack {
 
     private final RepositoryTrack repositoryTrack;
-
+    @Autowired
     public UseCaseEditTrack(RepositoryTrack repositoryTrack) {
         this.repositoryTrack = repositoryTrack;
     }

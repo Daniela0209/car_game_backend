@@ -16,7 +16,7 @@ public class RouterFindByIdRial {
 
      @Bean
     public RouterFunction<ServerResponse> getfindbyidrail(UseCaseFindByIdRial useCaseFindByIdRial){
-         return route(GET("consultarRail/{id}").and(accept(MediaType.APPLICATION_JSON)),
+         return route(GET("consultarrail/{id}").and(accept(MediaType.APPLICATION_JSON)),
                  request-> ServerResponse.ok()
                  .contentType(MediaType.APPLICATION_JSON)
                  .body(useCaseFindByIdRial.getfindbyid(request.pathVariable("id")), RailDTO.class)
