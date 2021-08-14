@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Track {
 
     @Id
-    private String pistaId;
+    private String trackId;
     private String  trackdistance;
 
 }

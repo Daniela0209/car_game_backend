@@ -22,7 +22,6 @@ public class RouterCreateRail {
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
-
                         )
         );
     }
