@@ -1,6 +1,5 @@
 package com.gamecar.gamecar.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -14,7 +13,9 @@ public class DriverDTO {
 
     @Id
     private String driverId;
-    private String  dices;
+    private Integer positionDriver;
     private String playerId;
+    private String railId;
+    private String carId;
 
 }
