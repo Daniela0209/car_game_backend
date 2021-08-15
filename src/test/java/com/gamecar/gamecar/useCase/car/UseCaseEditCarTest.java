@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class UseCreateEditCarTest {
+class UseCaseEditCarTest {
 
     @SpyBean
     UseCaseEditCar useCaseEditCar;
