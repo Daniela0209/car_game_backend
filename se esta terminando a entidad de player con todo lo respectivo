@@ -1,0 +1,47 @@
+[33mcommit 2ca7026abb6dfd1b8c92b33f3fd2ba5af584e991[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Sat Aug 14 14:34:52 2021 -0500
+
+    se termino los casos de uso de car,track y rail
+
+[33mcommit 1fde01fb85499188f93370482078119199d77882[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Sat Aug 14 01:20:50 2021 -0500
+
+    se crearon algunos crud de carro
+
+[33mcommit 35441766795ffee4c1ac27439af438bfe88fab3e[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Sat Aug 14 00:24:18 2021 -0500
+
+    crud de track terminado
+
+[33mcommit 0af1d089bd58e173fbd0497b8ae099ee850da561[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Fri Aug 13 23:23:08 2021 -0500
+
+    crud de rail listo
+
+[33mcommit 56c022c77db9a98950bd38c8ac41ec3bba1f5e07[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Fri Aug 13 11:55:35 2021 -0500
+
+    segundo servicio listo Rail
+
+[33mcommit 8d81be7d367c8f873510db9c30799b1eea1b37e2[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Wed Aug 11 17:48:20 2021 -0500
+
+    se creo el mapper y caso de uso de player
+
+[33mcommit c8d7ca44178e32a57edbb4f8745b25953e1b0a1c[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Tue Aug 10 23:51:44 2021 -0500
+
+    the created the entitys, dto,values y repository.
+
+[33mcommit 31e712001761a0fbc0c0480c418d2aabf6bca2d7[m
+Author: Daniela0209 <grajalesdaniela253@gmail.com>
+Date:   Tue Aug 10 21:04:11 2021 -0500
+
+    se crearon las carpetas y se agrego el pom

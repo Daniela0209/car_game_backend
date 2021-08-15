@@ -1,11 +1,8 @@
-/*package com.gamecar.gamecar.mapper;
+package com.gamecar.gamecar.mapper;
 
 
 import com.gamecar.gamecar.domain.Player;
 import com.gamecar.gamecar.dto.PlayerDTO;
-import com.gamecar.gamecar.values.NamePlayer;
-import com.gamecar.gamecar.values.WinnerPosition;
-import com.gamecar.gamecar.values.id.PlayerId;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
@@ -15,23 +12,33 @@ import java.util.function.Function;
 public class MapperJugador {
 
     public Function<PlayerDTO, Player> mapperPlayer(String id){
-        return dataPlayer -> new Player(
-                PlayerId.of(id),
-                new NamePlayer(dataPlayer.getNamePlayer()),
-                new WinnerPosition(dataPlayer.getFirstPosition()),
-                new WinnerPosition(dataPlayer.getSecondPosition()),
-                new WinnerPosition(dataPlayer.getThirdPosition())
-        );
+        return dataPlayer -> {
+            Player player = new Player();
+            player.setPlayerId(dataPlayer.getPlayerId());
+            player.setNamePlayer(dataPlayer.getNamePlayer());
+            player.setFirstPosition(dataPlayer.getFirstPosition());
+            player.setSecondPosition(dataPlayer.getSecondPosition());
+            player.setThirdPosition(dataPlayer.getThirdPosition());
+            player.setGameId(dataPlayer.getGameId());
+            player.setDriverId(dataPlayer.getDriverId());
+            return player;
+
+        };
+
+
     }
 
     public Function<Player, PlayerDTO> mapperPlayerDTO(){
         return player -> new PlayerDTO(
-                player.getPlayerId().getValue(),
-                player.getNamePlayer().getNamePlayer(),
-                player.getFirstPosition().getValue(),
-                player.getSecondPosition().getValue(),
-                player.getThirdPosition().getValue()
+              player.getPlayerId(),
+                player.getNamePlayer(),
+                player.getFirstPosition(),
+                player.getSecondPosition(),
+                player.getThirdPosition(),
+                player.getGameId(),
+                player.getDriverId()
+
         );
     }
 
-}*/
+}

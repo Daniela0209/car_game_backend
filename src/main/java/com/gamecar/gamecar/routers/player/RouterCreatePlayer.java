@@ -16,12 +16,11 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class RouterCreatePlayer {
-
     @Bean
-    public RouterFunction<ServerResponse> createPlayer(UseCaseCreatePlayer useCaseCreatePlayer) {
-        return route(POST("/crearjugador").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> createPlayer(UseCaseCreatePlayer useCaseCreatePlayer){
+        return  route(POST("/player/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(PlayerDTO.class)
-                        .flatMap(playerDTO -> useCaseCreatePlayer.apply(playerDTO)
+                        .flatMap(playerDTO -> useCaseCreatePlayer.createPlayer(playerDTO)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))

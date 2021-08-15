@@ -1,9 +1,11 @@
 package com.gamecar.gamecar.repository;
 
-import com.gamecar.gamecar.dto.RailDTO;
+import com.gamecar.gamecar.domain.Rail;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
-public interface RepositoryRail extends ReactiveMongoRepository<RailDTO, String> {
-    Flux<RailDTO> findByTrackId(String trackId);
+@Repository
+public interface RepositoryRail extends ReactiveMongoRepository<Rail, String> {
+    Flux<Rail> findByTrackId(String trackId);
 }

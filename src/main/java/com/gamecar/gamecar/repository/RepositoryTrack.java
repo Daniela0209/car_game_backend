@@ -1,7 +1,9 @@
 package com.gamecar.gamecar.repository;
 
-import com.gamecar.gamecar.dto.TrackDTO;
+import com.gamecar.gamecar.domain.Track;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RepositoryTrack extends ReactiveMongoRepository<TrackDTO, String> {
+@Repository
+public interface RepositoryTrack extends ReactiveMongoRepository<Track, String> {
 }

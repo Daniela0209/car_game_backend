@@ -16,11 +16,11 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterEditRail {
 
     @Bean
-    public RouterFunction<ServerResponse> editRail(UseCaseEditRail useCaseEditRail) {
-        return route(PUT("/editarCarril").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> editRail(UseCaseEditRail useCaseEditRail){
+        return route(PUT("/rail/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RailDTO.class)
-                        .flatMap(railDTO -> useCaseEditRail.apply(railDTO)
-                                .flatMap(result -> ServerResponse.ok()
+                        .flatMap(railDTO -> useCaseEditRail.editRail(railDTO)
+                                .flatMap(result-> ServerResponse.ok()
                                         .bodyValue(result))
                         )
         );

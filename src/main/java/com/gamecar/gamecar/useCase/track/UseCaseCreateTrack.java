@@ -2,6 +2,7 @@ package com.gamecar.gamecar.useCase.track;
 
 
 import com.gamecar.gamecar.dto.TrackDTO;
+import com.gamecar.gamecar.mapper.MapperPista;
 import com.gamecar.gamecar.repository.RepositoryTrack;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,15 +14,19 @@ import reactor.core.publisher.Mono;
 public class UseCaseCreateTrack {
 
     private final RepositoryTrack repositoryTrack;
+    private final MapperPista mapperPista;
 
     @Autowired
-    public UseCaseCreateTrack(RepositoryTrack repositoryTrack) {
+    public UseCaseCreateTrack(RepositoryTrack repositoryTrack, MapperPista mapperPista) {
         this.repositoryTrack = repositoryTrack;
+        this.mapperPista = mapperPista;
     }
 
     public Mono<TrackDTO> apply(TrackDTO trackDTO){
         return repositoryTrack
-                .save(trackDTO)
-                .thenReturn(trackDTO);
+                .save(mapperPista.mapperTrack(trackDTO.getTrackId())
+                        .apply(trackDTO))
+                .map(mapperPista.mapperTrackDTO());
+
     }
 }

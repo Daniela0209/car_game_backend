@@ -2,6 +2,7 @@ package com.gamecar.gamecar.useCase.car;
 
 
 import com.gamecar.gamecar.dto.CarDTO;
+import com.gamecar.gamecar.mapper.MapperCarro;
 import com.gamecar.gamecar.repository.RepositoryCar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,14 +14,18 @@ import reactor.core.publisher.Mono;
 public class UseCaseCreateCar {
 
     private final RepositoryCar repositoryCar;
+    private final MapperCarro mapperCarro;
+
     @Autowired
-    public UseCaseCreateCar(RepositoryCar repositoryCar) {
+    public UseCaseCreateCar(RepositoryCar repositoryCar, MapperCarro mapperCarro) {
         this.repositoryCar = repositoryCar;
+        this.mapperCarro = mapperCarro;
     }
 
-    public Mono<CarDTO> apply(CarDTO carDTO){
+    public Mono<CarDTO> createCar(CarDTO carDTO){
         return repositoryCar
-                .save(carDTO)
-                .thenReturn(carDTO);
+                .save(mapperCarro.mapperCar(carDTO.getCarId())
+                .apply(carDTO))
+                .map(mapperCarro.mapperCarDTO());
     }
 }

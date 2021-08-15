@@ -19,7 +19,7 @@ public class RouterFindByTrackIdRail {
 
     @Bean
     public RouterFunction<ServerResponse> getRailByTrackId(UseCaseFindByTrackIdRail useCaseFindByTrackIdRail){
-        return route(GET("/get/carril/pista/id/{trackid}").and(accept(MediaType.APPLICATION_JSON)),
+        return route(GET("/get/carril/pista/{trackid}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(BodyInserters.fromPublisher(useCaseFindByTrackIdRail.getRailByTrackId(request.pathVariable("trackid")), RailDTO.class))

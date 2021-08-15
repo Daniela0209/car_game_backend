@@ -18,9 +18,9 @@ public class RouterEditTrack {
 
     @Bean
     public RouterFunction<ServerResponse> editTrack(UseCaseEditTrack useCaseEditTrack){
-        return route(PUT("/editarPista").and(accept(MediaType.APPLICATION_JSON)),
+        return route(PUT("/track/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(TrackDTO.class)
-                        .flatMap(trackDTO -> useCaseEditTrack.apply(trackDTO)
+                        .flatMap(trackDTO -> useCaseEditTrack.editTrack(trackDTO)
                                 .flatMap(result -> ServerResponse.ok()
                                         .bodyValue(result))
 

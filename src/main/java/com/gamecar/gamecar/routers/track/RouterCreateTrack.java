@@ -1,9 +1,7 @@
 package com.gamecar.gamecar.routers.track;
 
 
-import com.gamecar.gamecar.dto.RailDTO;
 import com.gamecar.gamecar.dto.TrackDTO;
-import com.gamecar.gamecar.useCase.rail.UseCaseCreateRail;
 import com.gamecar.gamecar.useCase.track.UseCaseCreateTrack;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +18,7 @@ public class RouterCreateTrack {
 
     @Bean
     public RouterFunction<ServerResponse> createTrack(UseCaseCreateTrack useCaseCreateTrack) {
-        return route(POST("/crearPista").and(accept(MediaType.APPLICATION_JSON)),
+        return route(POST("/track/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(TrackDTO.class)
                         .flatMap(trackDTO -> useCaseCreateTrack.apply(trackDTO)
                                 .flatMap(result -> ServerResponse.ok()

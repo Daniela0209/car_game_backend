@@ -1,7 +1,9 @@
 package com.gamecar.gamecar.repository;
 
-import com.gamecar.gamecar.dto.DriverDTO;
+import com.gamecar.gamecar.domain.Driver;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RepositoryDriver extends ReactiveMongoRepository<DriverDTO, String> {
+@Repository
+public interface RepositoryDriver extends ReactiveMongoRepository<Driver, String> {
 }

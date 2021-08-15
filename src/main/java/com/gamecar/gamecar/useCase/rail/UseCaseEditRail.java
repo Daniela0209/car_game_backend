@@ -2,6 +2,7 @@ package com.gamecar.gamecar.useCase.rail;
 
 
 import com.gamecar.gamecar.dto.RailDTO;
+import com.gamecar.gamecar.mapper.MapperCarril;
 import com.gamecar.gamecar.repository.RepositoryRail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +16,17 @@ public class UseCaseEditRail {
 
 
     private final RepositoryRail repositoryRail;
-
+    private final MapperCarril mapperCarril;
 
     @Autowired
-    public UseCaseEditRail(RepositoryRail repositoryRail ) {
+    public UseCaseEditRail(RepositoryRail repositoryRail, MapperCarril mapperCarril) {
         this.repositoryRail = repositoryRail;
-
+        this.mapperCarril = mapperCarril;
     }
-    public Mono<RailDTO> apply(RailDTO railDTO){
+    public Mono<RailDTO> editRail(RailDTO railDTO){
         return repositoryRail
-                .save(railDTO)
-                .thenReturn(railDTO);
+                .save(mapperCarril.mapperRail(railDTO.getRailId())
+                        .apply(railDTO))
+                .map(mapperCarril.mapperRailDTO());
     }
 }

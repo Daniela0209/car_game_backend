@@ -15,10 +15,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class RouterCreateRail {
 
     @Bean
-    public RouterFunction<ServerResponse> createRail(UseCaseCreateRail useCaseCreateRail) {
-        return route(POST("/crearcarril").and(accept(MediaType.APPLICATION_JSON)),
+    public RouterFunction<ServerResponse> CreateRail(UseCaseCreateRail useCaseCreateRail){
+        return  route(POST("/rail/create").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(RailDTO.class)
-                        .flatMap(railDTO -> useCaseCreateRail.apply(railDTO)
+                        .flatMap(railDTO -> useCaseCreateRail.createRail(railDTO)
                                 .flatMap(result -> ServerResponse.ok()
                                         .contentType(MediaType.APPLICATION_JSON)
                                         .bodyValue(result))
