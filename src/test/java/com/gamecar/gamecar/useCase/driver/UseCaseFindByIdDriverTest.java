@@ -30,11 +30,11 @@ class UseCaseFindByIdDriverTest {
         driver.setPlayerId("11");
         driver.setCarId("45");
 
-        when(repositoryDriver.save(Mockito.any(Driver.class))).thenReturn(Mono.just(driver));
+        when(repositoryDriver.findById(Mockito.any(String.class))).thenReturn(Mono.just(driver));
 
-        var response = useCaseFindByIdDriver.getfindbyid(driverDTO.getDriverId());
+        var response = useCaseFindByIdDriver.findByIdDriver(driverDTO.getDriverId());
 
-        Assertions.assertEquals(response.block(), driverDTO);
+        Assertions.assertEquals(response.block().getDriverId(), "14");
     }
 
 }

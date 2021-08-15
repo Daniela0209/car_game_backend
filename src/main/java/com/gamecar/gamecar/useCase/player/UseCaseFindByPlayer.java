@@ -23,8 +23,8 @@ public class UseCaseFindByPlayer {
     }
 
 
-    public Mono<PlayerDTO> getfindbyid(String id){
+    public Mono<PlayerDTO> findByIdPlayer(String id) {
         return repositoryPlayer.findById(id)
-                .flatMap(player ->
-                        Mono.just(mapperJugador.mapperPlayerDTO().apply(player))); }
+                .map(mapperJugador.mapperPlayerDTO());
+    }
 }

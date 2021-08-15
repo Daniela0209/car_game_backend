@@ -21,7 +21,7 @@ public class RouterFindByIdPlayer {
         return route(GET("/player/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(useCaseFindByPlayer.getfindbyid(request.pathVariable("id")), PlayerDTO.class)
+                        .body(useCaseFindByPlayer.findByIdPlayer(request.pathVariable("id")), PlayerDTO.class)
         );
     }
 }

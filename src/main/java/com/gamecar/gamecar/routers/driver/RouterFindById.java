@@ -20,7 +20,7 @@ public class RouterFindById {
         return route(GET("/consultar/driver/{id}").and(accept(MediaType.APPLICATION_JSON)),
                 request-> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(useCaseFindByIdDriver.getfindbyid(request.pathVariable("id")), DriverDTO.class)
+                        .body(useCaseFindByIdDriver.findByIdDriver(request.pathVariable("id")), DriverDTO.class)
         );
     }
 }

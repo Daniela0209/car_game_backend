@@ -22,9 +22,11 @@ public class UseCaseFindByIdDriver {
         this.mapperConductor = mapperConductor;
     }
 
-    public Mono<DriverDTO> getfindbyid(String id){
+
+    public Mono<DriverDTO> findByIdDriver(String id) {
         return repositoryDriver.findById(id)
-                .flatMap(driver ->
-                        Mono.just(mapperConductor.mapperDriverDTO().apply(driver)));
+                .flatMap(
+                        driver -> Mono.just(mapperConductor.mapperDriverDTO().apply(driver))
+                );
     }
 }

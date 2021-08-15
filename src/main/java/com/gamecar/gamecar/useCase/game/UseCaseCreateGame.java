@@ -1,6 +1,7 @@
 package com.gamecar.gamecar.useCase.game;
 
 
+import com.gamecar.gamecar.domain.Game;
 import com.gamecar.gamecar.dto.GameDTO;
 import com.gamecar.gamecar.mapper.MapperGame;
 import com.gamecar.gamecar.repository.RepositoryGame;
@@ -20,9 +21,8 @@ public class UseCaseCreateGame {
     }
 
     public Mono<GameDTO> createGame(GameDTO gameDTO){
-        return repositoryGame
-                .save(mapperGame.mapperGame(gameDTO.getGameId())
-                        .apply(gameDTO))
+        return repositoryGame.save(mapperGame.mapperGame(gameDTO.getGameId())
+                .apply(gameDTO))
                 .map(mapperGame.mapperGameDTO());
 
 
