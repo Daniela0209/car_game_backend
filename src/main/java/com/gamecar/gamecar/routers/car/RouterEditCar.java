@@ -2,7 +2,7 @@ package com.gamecar.gamecar.routers.car;
 
 
 import com.gamecar.gamecar.dto.CarDTO;
-import com.gamecar.gamecar.useCase.car.UseCreateEditCar;
+import com.gamecar.gamecar.useCase.car.UseCaseEditCar;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -18,10 +18,10 @@ public class RouterEditCar {
 
 
     @Bean
-    public RouterFunction<ServerResponse> editCar(UseCreateEditCar useCreateEditCar){
+    public RouterFunction<ServerResponse> editCar(UseCaseEditCar useCaseEditCar){
         return route(PUT("/car/edit").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(CarDTO.class)
-                        .flatMap(carDTO -> useCreateEditCar.editCar(carDTO)
+                        .flatMap(carDTO -> useCaseEditCar.editCar(carDTO)
                                 .flatMap(result-> ServerResponse.ok()
                                         .bodyValue(result))
                         )

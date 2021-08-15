@@ -11,13 +11,13 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Validated
-public class UseCreateEditCar {
+public class UseCaseEditCar {
 
     private final RepositoryCar repositoryCar;
     private final MapperCarro mapperCarro;
 
     @Autowired
-    public UseCreateEditCar(RepositoryCar repositoryCar, MapperCarro mapperCarro) {
+    public UseCaseEditCar(RepositoryCar repositoryCar, MapperCarro mapperCarro) {
         this.repositoryCar = repositoryCar;
         this.mapperCarro = mapperCarro;
     }

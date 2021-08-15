@@ -23,6 +23,4 @@ public class CarDTO {
     private String gameId;
 
 
-
-
 }
