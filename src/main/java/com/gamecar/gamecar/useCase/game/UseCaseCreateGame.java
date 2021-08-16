@@ -1,7 +1,6 @@
 package com.gamecar.gamecar.useCase.game;
 
 
-import com.gamecar.gamecar.domain.Game;
 import com.gamecar.gamecar.dto.GameDTO;
 import com.gamecar.gamecar.mapper.MapperGame;
 import com.gamecar.gamecar.repository.RepositoryGame;

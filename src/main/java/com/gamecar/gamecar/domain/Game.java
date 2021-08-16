@@ -1,6 +1,5 @@
 package com.gamecar.gamecar.domain;
 
-import com.gamecar.gamecar.values.id.GameId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

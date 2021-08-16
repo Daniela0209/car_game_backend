@@ -1,9 +1,7 @@
 package com.gamecar.gamecar.routers.game;
 
 import com.gamecar.gamecar.dto.GameDTO;
-import com.gamecar.gamecar.dto.PlayerDTO;
 import com.gamecar.gamecar.useCase.game.UseCaseEditGame;
-import com.gamecar.gamecar.useCase.player.UseCaseEditPlayer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
