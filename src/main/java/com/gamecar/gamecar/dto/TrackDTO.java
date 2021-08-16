@@ -17,4 +17,6 @@ public class TrackDTO {
     private String  trackdistance;
 
 
+    public TrackDTO(String toString, int parseInt, String gameId, Object o) {
+    }
 }

@@ -18,4 +18,6 @@ public class DriverDTO {
     private String playerId;
     private String carId;
 
+    public DriverDTO(String toString, Object o, String playerId, Object o1, Object o2) {
+    }
 }

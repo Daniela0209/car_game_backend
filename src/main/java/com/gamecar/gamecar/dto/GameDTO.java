@@ -16,4 +16,7 @@ public class GameDTO {
 
     @Id
     private String gameId;
+
+    public GameDTO(String toString, Object o) {
+    }
 }

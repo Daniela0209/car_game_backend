@@ -22,7 +22,6 @@ public class RailDTO {
     private String  trackId;
 
 
-
-
-
+    public RailDTO(String toString, String carId, String gameId, String trackId, String driverId) {
+    }
 }

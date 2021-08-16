@@ -23,4 +23,9 @@ public class CarDTO {
     private String gameId;
 
 
+    public CarDTO(String toString, Object o, Boolean aFalse, int i, int i1, int i2, String driverId, String gameId, Object o1) {
+    }
+
+    public CarDTO(String carId, Boolean isgoalArrival, Integer actualPosition, Integer actualPosition1, String driverId, String gameId, String railId) {
+    }
 }
