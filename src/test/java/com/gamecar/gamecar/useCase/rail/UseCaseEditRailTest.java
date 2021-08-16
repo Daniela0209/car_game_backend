@@ -25,8 +25,8 @@ class UseCaseEditRailTest {
 
     @Test
     void editRail(){
-        var railDTO = new RailDTO("12","54","65",3,"8","11");
-        var rail = new Rail();
+        RailDTO railDTO = new RailDTO("12","54","65",3,"8","11");
+        Rail rail = new Rail();
         rail.setRailId("12");
         rail.setCarId("54");
         rail.setDriverId("65");
@@ -37,7 +37,7 @@ class UseCaseEditRailTest {
 
         when(repositoryRail.save(Mockito.any(Rail.class))).thenReturn(Mono.just(rail));
 
-        var response = useCaseEditRail.editRail(railDTO);
+        Mono<RailDTO> response = useCaseEditRail.editRail(railDTO);
 
         Assertions.assertEquals(response.block(), railDTO);
     }

@@ -26,8 +26,8 @@ class UseCaseCreateRailTest {
 
     @Test
     void createRail(){
-        var railDTO = new RailDTO("34","8","12",4,"9","11");
-        var rail = new Rail();
+        RailDTO railDTO = new RailDTO("34","8","12",4,"9","11");
+        Rail rail = new Rail();
         rail.setRailId("34");
         rail.setCarId("8");
         rail.setDriverId("12");
@@ -37,7 +37,7 @@ class UseCaseCreateRailTest {
 
         when(repositoryRail.save(Mockito.any(Rail.class))).thenReturn(Mono.just(rail));
 
-        var response = useCaseCreateRail.createRail(railDTO);
+        Mono<RailDTO> response = useCaseCreateRail.createRail(railDTO);
 
         Assertions.assertEquals(response.block(), railDTO);
     }

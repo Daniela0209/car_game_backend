@@ -26,8 +26,8 @@ class UseCaseCreateTrackTest {
 
     @Test
     void createTrack(){
-        var trackDTO = new  TrackDTO("3","12");
-        var track = new Track();
+        TrackDTO trackDTO = new  TrackDTO("3","12");
+        Track track = new Track();
         track.setTrackId("3");
         track.setTrackdistance("12");
 
@@ -35,7 +35,7 @@ class UseCaseCreateTrackTest {
 
         when(repositoryTrack.save(Mockito.any(Track.class))).thenReturn(Mono.just(track));
 
-        var response = useCaseCreateTrack.apply(trackDTO);
+        Mono<TrackDTO> response = useCaseCreateTrack.apply(trackDTO);
 
         Assertions.assertEquals(response.block(), trackDTO);
     }

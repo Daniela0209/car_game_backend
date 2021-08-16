@@ -24,8 +24,8 @@ class UseCaseFindByGameIdPlayerTest {
 
     @Test
     void findByIdGame(){
-        var playerDTO = new PlayerDTO("12","sandra",2,1,0,"23","10");
-        var player = new Player();
+        PlayerDTO playerDTO = new PlayerDTO("12","sandra",2,1,0,"23","10");
+        Player player = new Player();
         player.setPlayerId("12");
         player.setNamePlayer("sandra");
         player.setFirstPosition(2);
@@ -37,7 +37,7 @@ class UseCaseFindByGameIdPlayerTest {
 
         when(repositoryPlayer.findByGameId(Mockito.any(String.class))).thenReturn(Flux.just(player));
 
-        var response = useCaseFindByGameIdPlayer.getPlayerByGameId(playerDTO.getGameId());
+        Flux<PlayerDTO> response = useCaseFindByGameIdPlayer.getPlayerByGameId(playerDTO.getGameId());
 
         Assertions.assertEquals(response.blockFirst().getGameId(), "23");
     }

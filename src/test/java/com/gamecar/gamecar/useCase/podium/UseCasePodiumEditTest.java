@@ -26,8 +26,8 @@ class UseCasePodiumEditTest {
 
     @Test
     void editPodium(){
-        var podiumDTO = new PodiumDTO("3","4","Andrea","Sara","Manuel");
-        var podium = new Podium();
+        PodiumDTO podiumDTO = new PodiumDTO("3","4","Andrea","Sara","Manuel");
+        Podium podium = new Podium();
         podium.setPodiumId("3");
         podium.setDriverId("4");
         podium.setFirstPlace("Andrea");
@@ -37,7 +37,7 @@ class UseCasePodiumEditTest {
 
         when(repositoryPodium.save(Mockito.any(Podium.class))).thenReturn(Mono.just(podium));
 
-        var response = useCasePodiumEdit.editPodium(podiumDTO);
+        Mono<PodiumDTO> response = useCasePodiumEdit.editPodium(podiumDTO);
 
         Assertions.assertEquals(response.block(), podiumDTO);
     }

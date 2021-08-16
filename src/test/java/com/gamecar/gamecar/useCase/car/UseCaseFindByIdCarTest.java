@@ -24,9 +24,9 @@ class UseCaseFindByIdCarTest {
 
     @Test
     void findByIdCar(){
-        var carDTO = new CarDTO("5","6",true,"98",4,"23");
+        CarDTO carDTO = new CarDTO("5","6",true,"98",4,"23");
 
-        var car = new Car();
+        Car car = new Car();
         car.setCarId("5");
         car.setDriverId("6");
         car.setIsgoalArrival(true);
@@ -36,7 +36,7 @@ class UseCaseFindByIdCarTest {
 
         when(repositoryCar.findById(Mockito.any(String.class))).thenReturn(Mono.just(car));
 
-        var response = useCaseFindByIdCar.getfindbyid(carDTO.getCarId());
+        Mono<CarDTO> response = useCaseFindByIdCar.getfindbyid(carDTO.getCarId());
 
         Assertions.assertEquals(response.block().getCarId(), "5");
     }

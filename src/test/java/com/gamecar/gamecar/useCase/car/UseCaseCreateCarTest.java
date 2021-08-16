@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class UseCaseCreateCarTest {
+class  UseCaseCreateCarTest {
 
     @SpyBean
     UseCaseCreateCar useCaseCreateCar;
@@ -25,8 +25,8 @@ class UseCaseCreateCarTest {
 
     @Test
     void createCar(){
-        var carDTO = new CarDTO("2","3",true,"8",2,"4" );
-        var car = new Car();
+        CarDTO carDTO = new CarDTO("2","3",true,"8",2,"4" );
+        Car car = new Car();
         car.setCarId("2");
         car.setDriverId("3");
         car.setIsgoalArrival(true);
@@ -36,7 +36,7 @@ class UseCaseCreateCarTest {
 
         when(repositoryCar.save(Mockito.any(Car.class))).thenReturn(Mono.just(car));
 
-        var response = useCaseCreateCar.createCar(carDTO);
+        Mono<CarDTO> response = useCaseCreateCar.createCar(carDTO);
 
         Assertions.assertEquals(response.block(), carDTO);
     }

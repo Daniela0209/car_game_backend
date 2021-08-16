@@ -25,14 +25,14 @@ class UseCaseFindByIdTrackTest {
 
     @Test
     void findBYIdTrack(){
-        var trackDTO = new TrackDTO("400","123");
-        var track = new Track();
+        TrackDTO trackDTO = new TrackDTO("400","123");
+        Track track = new Track();
         track.setTrackId("400");
         track.setTrackdistance("123");
 
         when(repositoryTrack.findById(Mockito.any(String.class))).thenReturn(Mono.just(track));
 
-        var response = useCaseFindByIdTrack.getfindbyid(trackDTO.getTrackId());
+        Mono<TrackDTO> response = useCaseFindByIdTrack.getfindbyid(trackDTO.getTrackId());
 
         Assertions.assertEquals(response.block().getTrackId(), "400");
     }

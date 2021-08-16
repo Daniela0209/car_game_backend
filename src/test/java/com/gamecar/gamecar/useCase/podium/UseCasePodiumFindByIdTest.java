@@ -24,8 +24,8 @@ class UseCasePodiumFindByIdTest {
 
     @Test
     void findByIdPodium(){
-        var podiumDTO = new PodiumDTO("4","5","Gabriela","Sebas","Estefa");
-        var podium = new Podium();
+        PodiumDTO podiumDTO = new PodiumDTO("4","5","Gabriela","Sebas","Estefa");
+        Podium podium = new Podium();
         podium.setPodiumId("4");
         podium.setDriverId("5");
         podium.setFirstPlace("Gabriela");
@@ -35,7 +35,7 @@ class UseCasePodiumFindByIdTest {
 
         when(repositoryPodium.findById(Mockito.any(String.class))).thenReturn(Mono.just(podium));
 
-        var response = useCasePodiumFindById.getfindbyid(podiumDTO.getPodiumId());
+        Mono<PodiumDTO> response = useCasePodiumFindById.getfindbyid(podiumDTO.getPodiumId());
 
         Assertions.assertEquals(response.block().getPodiumId(), "4");
     }

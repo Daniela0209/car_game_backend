@@ -24,15 +24,15 @@ class UseCaseFindByIdDriverTest {
 
     @Test
     void findByIdDriver(){
-        var driverDTO = new DriverDTO("14","11","45");
-        var driver = new Driver();
+        DriverDTO driverDTO = new DriverDTO("14","11","45");
+        Driver driver = new Driver();
         driver.setDriverId("14");
         driver.setPlayerId("11");
         driver.setCarId("45");
 
         when(repositoryDriver.findById(Mockito.any(String.class))).thenReturn(Mono.just(driver));
 
-        var response = useCaseFindByIdDriver.findByIdDriver(driverDTO.getDriverId());
+        Mono<DriverDTO> response = useCaseFindByIdDriver.findByIdDriver(driverDTO.getDriverId());
 
         Assertions.assertEquals(response.block().getDriverId(), "14");
     }

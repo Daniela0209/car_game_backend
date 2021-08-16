@@ -26,8 +26,8 @@ class UseCaseFindByPlayerTest {
 
     @Test
    void findByIdPlayer(){
-        var playerDTO = new PlayerDTO("14","Gabriela",3,2,4,"12","8");
-        var player = new Player();
+        PlayerDTO playerDTO = new PlayerDTO("14","Gabriela",3,2,4,"12","8");
+        Player player = new Player();
         player.setPlayerId("14");
         player.setNamePlayer("Gabriela");
         player.setFirstPosition(3);
@@ -38,7 +38,7 @@ class UseCaseFindByPlayerTest {
 
         when(repositoryPlayer.findById(Mockito.any(String.class))).thenReturn(Mono.just(player));
 
-        var response = useCaseFindByPlayer.findByIdPlayer(playerDTO.getPlayerId());
+        Mono<PlayerDTO> response = useCaseFindByPlayer.findByIdPlayer(playerDTO.getPlayerId());
 
         Assertions.assertEquals(response.block().getPlayerId(), "14");
     }

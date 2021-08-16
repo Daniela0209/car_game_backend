@@ -25,8 +25,8 @@ class UseCaseCreateDriverTest {
 
     @Test
     void createDriver(){
-        var driverDTO = new DriverDTO("12","34","4");
-        var driver = new Driver();
+        DriverDTO driverDTO = new DriverDTO("12","34","4");
+        Driver driver = new Driver();
         driver.setDriverId("12");
         driver.setPlayerId("34");
         driver.setCarId("4");
@@ -34,7 +34,7 @@ class UseCaseCreateDriverTest {
 
         when(repositoryDriver.save(Mockito.any(Driver.class))).thenReturn(Mono.just(driver));
 
-        var response = useCaseCreateDriver.apply(driverDTO);
+        Mono<DriverDTO> response = useCaseCreateDriver.apply(driverDTO);
 
         Assertions.assertEquals(response.block(), driverDTO);
     }

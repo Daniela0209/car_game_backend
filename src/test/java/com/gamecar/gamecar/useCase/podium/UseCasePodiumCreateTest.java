@@ -24,8 +24,8 @@ class UseCasePodiumCreateTest {
 
     @Test
     void createPodium(){
-        var podiumDTO = new PodiumDTO("2","5","Gabriela","Estefania","Daniela");
-        var podium = new Podium();
+        PodiumDTO podiumDTO = new PodiumDTO("2","5","Gabriela","Estefania","Daniela");
+        Podium podium = new Podium();
         podium.setPodiumId("2");
         podium.setDriverId("5");
         podium.setFirstPlace("Gabriela");
@@ -35,7 +35,7 @@ class UseCasePodiumCreateTest {
 
         when(repositoryPodium.save(Mockito.any(Podium.class))).thenReturn(Mono.just(podium));
 
-        var response = useCasePodiumCreate.apply(podiumDTO);
+        Mono<PodiumDTO> response = useCasePodiumCreate.apply(podiumDTO);
 
         Assertions.assertEquals(response.block(), podiumDTO);
     }

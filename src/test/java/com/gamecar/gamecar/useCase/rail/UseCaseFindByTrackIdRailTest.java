@@ -25,8 +25,8 @@ class UseCaseFindByTrackIdRailTest {
 
      @Test
     void findIdTrack(){
-         var railDTO = new RailDTO("2","12","19",5,"14","1");
-         var rail = new Rail();
+         RailDTO railDTO = new RailDTO("2","12","19",5,"14","1");
+         Rail rail = new Rail();
          rail.setRailId("2");
          rail.setCarId("12");
          rail.setDriverId("19");
@@ -36,7 +36,7 @@ class UseCaseFindByTrackIdRailTest {
 
          when(repositoryRail.findByTrackId(Mockito.any(String.class))).thenReturn(Flux.just(rail));
 
-         var response = useCaseFindByTrackIdRail.getRailByTrackId(railDTO.getTrackId());
+         Flux<RailDTO> response = useCaseFindByTrackIdRail.getRailByTrackId(railDTO.getTrackId());
 
          Assertions.assertEquals(response.blockFirst().getTrackId(), "1");
      }

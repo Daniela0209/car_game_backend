@@ -25,15 +25,15 @@ class UseCaseEditTrackTest {
 
     @Test
     void editTrack(){
-        var trackDTO = new TrackDTO("34","12");
-        var track = new Track();
+        TrackDTO trackDTO = new TrackDTO("34","12");
+        Track track = new Track();
         track.setTrackId("34");
         track.setTrackdistance("12");
 
 
         when(repositoryTrack.save(Mockito.any(Track.class))).thenReturn(Mono.just(track));
 
-        var response = useCaseEditTrack.editTrack(trackDTO);
+        Mono<TrackDTO> response = useCaseEditTrack.editTrack(trackDTO);
 
         Assertions.assertEquals(response.block(), trackDTO);
     }

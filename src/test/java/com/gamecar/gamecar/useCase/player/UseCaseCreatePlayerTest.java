@@ -23,8 +23,8 @@ class UseCaseCreatePlayerTest {
 
     @Test
     void createPlayer(){
-        var playerDTO = new PlayerDTO("34","Daniela",3,1,0,"12","34");
-        var player = new Player();
+        PlayerDTO playerDTO = new PlayerDTO("34","Daniela",3,1,0,"12","34");
+        Player player = new Player();
         player.setPlayerId("34");
         player.setNamePlayer("Daniela");
         player.setFirstPosition(3);
@@ -36,7 +36,7 @@ class UseCaseCreatePlayerTest {
 
         when(repositoryPlayer.save(Mockito.any(Player.class))).thenReturn(Mono.just(player));
 
-        var response = useCaseCreatePlayer.createPlayer(playerDTO);
+        Mono<PlayerDTO> response = useCaseCreatePlayer.createPlayer(playerDTO);
 
         Assertions.assertEquals(response.block(), playerDTO);
 
